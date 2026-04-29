@@ -1,4 +1,4 @@
-## Table: orders
+# Table: orders
 
 ### Business meaning:
 Questo è il core del dataset e contiene informazioni sugli ordini effettuati
@@ -14,16 +14,16 @@ customer_id -> customers.customer_id
 
 ### Columns:
 ```
-| Column                         | Type     | Description |
-|--------------------------------|----------|-------------|
-| order_id                       | string   | Identificativo univoco ordine |
-| customer_id                    | string   | Identificativo cliente |
-| order_status                   | string   | Stato dell’ordine |
-| order_purchase_timestamp       | datetime | Data acquisto ordine |
-| order_approved_at              | datetime | Data approvazione ordine |
-| order_delivered_carrier_date   | datetime | Data consegna al corriere |
-| order_delivered_customer_date  | datetime | Data consegna al cliente |
-| order_estimated_delivery_date  | datetime | Data stimata di consegna |
+│ Column                         │ Type     │ Description                   │
+├────────────────────────────────┼──────────┼───────────────────────────────│
+│ order_id                       │ string   │ Identificativo univoco ordine │
+│ customer_id                    │ string   │ Identificativo cliente        │
+│ order_status                   │ string   │ Stato dell’ordine             │
+│ order_purchase_timestamp       │ datetime │ Data acquisto ordine          │
+│ order_approved_at              │ datetime │ Data approvazione ordine      │
+│ order_delivered_carrier_date   │ datetime │ Data consegna al corriere     │
+│ order_delivered_customer_date  │ datetime │ Data consegna al cliente      │
+│ order_estimated_delivery_date  │ datetime │ Data stimata di consegna      │
 ```
 
 ### Notes:
@@ -31,7 +31,7 @@ customer_id -> customers.customer_id
 
 
 
-## Table: customers
+# Table: customers
 
 ### Business meaning:
 Contiene informazioni sui clienti e sulla loro posizione geografica
@@ -63,7 +63,7 @@ customer_id
 
 
 
-## Table: geolocation
+# Table: geolocation
 
 ### Business meaning:
 Contiene informazioni per ogni codice postale brasiliano con relative coordinate
