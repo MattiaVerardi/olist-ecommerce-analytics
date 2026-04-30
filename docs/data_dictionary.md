@@ -27,8 +27,8 @@ customer_id -> customers.customer_id
 ```
 
 ### Notes:
-- order_status contiene 8 valori distinti (delivered, invoiced, shipped, processing, unavailable, canceled, created, approved) e nessun valore null
-- valori null nelle colonne order_approved_at e order_delivered_*
+* order_status contiene 8 valori distinti (delivered, invoiced, shipped, processing, unavailable, canceled, created, approved) e nessun valore null
+* valori null nelle colonne order_approved_at e order_delivered_*
 
 
 
@@ -57,11 +57,11 @@ customer_id
 ```
 
 ### Notes:
-- non ci sono valori null
-- customer_id assegna un codice cliente per ogni ordine, anche se effettuato dallo stesso cliente
-- customer_unique_id assegna un codice univoco ad ogni cliente
-- per ogni customer_unique_id ci possono essere più customer_id
-- è possibile associare customer_zip_code_prefix a geolocation.geolocation_zip_code_prefix
+* non ci sono valori null
+* customer_id assegna un codice cliente per ogni ordine, anche se effettuato dallo stesso cliente
+* customer_unique_id assegna un codice univoco ad ogni cliente
+* per ogni customer_unique_id ci possono essere più customer_id
+* è possibile associare customer_zip_code_prefix a geolocation.geolocation_zip_code_prefix
 
 
 
@@ -89,9 +89,9 @@ più righe per lo stesso geolocation_zip_code_prefix
 ```
 
 ### Notes:
-- ci sono righe duplicate
-- geolocation_lat e geolocation_lng presentano anche valori negativi
-- è possibile associare geolocation_zip_code_prefix a customers.customer_zip_code_prefix e a sellers.seller_zip_code_prefix
+* ci sono righe duplicate
+* geolocation_lat e geolocation_lng presentano anche valori negativi
+* è possibile associare geolocation_zip_code_prefix a customers.customer_zip_code_prefix e a sellers.seller_zip_code_prefix
 
 
 
@@ -119,8 +119,8 @@ seller_id
 ```
 
 ### Notes:
-- non ci sono valori null
-- è possibile associare seller_zip_code_prefix a geolocation.geolocation_zip_code_prefix
+* non ci sono valori null
+* è possibile associare seller_zip_code_prefix a geolocation.geolocation_zip_code_prefix
 
 
 
@@ -153,9 +153,9 @@ product_id
 ```
 
 ### Notes:
-- ogni colonna, ad eccezione del PK, presenta dei valori null
-- la categoria dei prodotti in product_category_name è in lingua portoghese
-- i campi product_name_lenght e product_description_lenght presentano un errore ortografico ("lenght" invece di "length")
+* ogni colonna, ad eccezione del PK, presenta dei valori null
+* la categoria dei prodotti in product_category_name è in lingua portoghese
+* i campi product_name_lenght e product_description_lenght presentano un errore ortografico ("lenght" invece di "length")
 
 
 
@@ -180,8 +180,8 @@ Contiene le traduzioni dei nomi di categoria dei prodotti da portoghese a ingles
 ```
 
 ### Notes:
-- non ci sono valori null
-- è possibile collegare product_category_name con products.product_category_name
+* non ci sono valori null
+* è possibile collegare product_category_name con products.product_category_name
 
 
  
@@ -215,9 +215,9 @@ seller_id -> sellers.seller_id
 ```
 
 ### Notes:
-- non ci sono valori null
-- uno stesso order_id può avere più articoli, identificati univocamente con un numero sequenziale da order_item_id
-- se un order_id ha più di un order_item_id, il freight_value totale viene suddiviso tra i vari articoli
+* non ci sono valori null
+* uno stesso order_id può avere più articoli, identificati univocamente con un numero sequenziale da order_item_id
+* se un order_id ha più di un order_item_id, il freight_value totale viene suddiviso tra i vari articoli
 
 
 
@@ -247,10 +247,10 @@ order_id -> orders.order_id
 ```
 
 ### Notes:
-- non ci sono valori null
-- se un cliente sceglie di pagare un ordine con più di un metodo di pagamento, payment_sequential rappresenta il numero sequenziale dei metodi scelti
-- se payment_installments è 1, il cliente ha pagato in un'unica soluzione
-- attenzione a valori di payment_installments pari a 0, potrebbero trattarsi di anomalie o dati mancanti
+* non ci sono valori null
+* se un cliente sceglie di pagare un ordine con più di un metodo di pagamento, payment_sequential rappresenta il numero sequenziale dei metodi scelti
+* se payment_installments è 1, il cliente ha pagato in un'unica soluzione
+* attenzione a valori di payment_installments pari a 0, potrebbero trattarsi di anomalie o dati mancanti
 
 
  
@@ -282,6 +282,6 @@ order_id -> orders.order_id
 ```
 
 ### Notes:
-- review_score va da 1 a 5
-- review_comment_title e review_comment_message contengono dei valori null
-- review_comment_title e review_comment_message sono in lingua portoghese
+* review_score va da 1 a 5
+* review_comment_title e review_comment_message contengono dei valori null
+* review_comment_title e review_comment_message sono in lingua portoghese
