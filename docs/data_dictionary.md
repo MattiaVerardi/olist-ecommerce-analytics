@@ -161,6 +161,7 @@ Contiene le traduzioni dei nomi di categoria dei prodotti da portoghese ad ingle
 1 riga = 1 categoria
 
 ### PK:
+product_category_name
 
 ### FK:
 
@@ -180,10 +181,10 @@ Contiene le traduzioni dei nomi di categoria dei prodotti da portoghese ad ingle
 # Table: order_items
 
 ### Business meaning:
-Contiene informazioni riguardo gli articoli acquistati per ogni ordine
+Contiene informazioni riguardo gli articoli venduti
 
 ### Granularity:
-1 riga = 1 articolo all'interno di un ordine
+1 riga = 1 articolo venduto
 
 ### PK:
 (order_id, order_item_id)
@@ -218,7 +219,7 @@ seller_id -> sellers.seller_id
 Contiene informazioni riguardo le opzioni di pagamento degli ordini
 
 ### Granularity:
-1 riga = 1 transazione per ordine
+1 riga = 1 transazione di pagamento
 
 ### PK:
 (order_id, payment_sequential)
