@@ -50,7 +50,7 @@ customer_id
 |--------------------------|--------|-----------------------------------------|
 | customer_id              | string | Codice cliente univoco                  |
 | customer_unique_id       | string | Identificativo univoco del cliente      |
-| customer_zip_code_prefix | int    | Prefisso del codice postale del cliente |
+| customer_zip_code_prefix | string | Prefisso del codice postale del cliente |
 | customer_city       	   | string | Città del cliente                       |
 | customer_state           | string | Stato del cliente                       |
 ```
@@ -79,7 +79,7 @@ più righe per lo stesso geolocation_zip_code_prefix
 ```
 | Column                      | Type    | Description                 |
 |-----------------------------|---------|-----------------------------|
-| geolocation_zip_code_prefix |	int     | Prefisso del codice postale |
+| geolocation_zip_code_prefix |	string  | Prefisso del codice postale |
 | geolocation_lat	      | decimal | Latitudine                  |
 | geolocation_lng             | decimal | Longitudine                 |
 | geolocation_city            | string  | Città                       |
@@ -109,7 +109,7 @@ seller_id
 | Column                 | Type   | Description                               |
 |------------------------|--------|-------------------------------------------|
 | seller_id              | string | Identificativo univoco del venditore      |
-| seller_zip_code_prefix | int    | Prefisso del codice postale del venditore |
+| seller_zip_code_prefix | string | Prefisso del codice postale del venditore |
 | seller_city            | string | Città del venditore                       |
 | seller_state           | string | Stato del venditore                       |
 ```
