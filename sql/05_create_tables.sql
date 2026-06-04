@@ -14,7 +14,7 @@ if object_id('clean_orders', 'u') is not null
 go
 
 create table clean_orders(
-	order_id char(32) primary key not null,
+	order_id char(32) primary key,
 	customer_id char(32) not null,
 	order_status varchar(15) not null,
 	order_purchase_timestamp datetime not null,
@@ -31,7 +31,7 @@ if object_id('clean_customers', 'u') is not null
 go
 
 create table clean_customers(
-	customer_id char(32) primary key not null,
+	customer_id char(32) primary key,
 	customer_unique_id char(32) not null,
 	customer_zip_code_prefix char(5) not null,
 	customer_city varchar(50) not null,
@@ -59,7 +59,7 @@ if object_id('clean_sellers', 'u') is not null
 go
 
 create table clean_sellers(
-	seller_id char(32) primary key not null,
+	seller_id char(32) primary key,
 	seller_zip_code_prefix char(5) not null,
 	seller_city varchar(50) not null,
 	seller_state char(2) not null
@@ -72,7 +72,7 @@ if object_id('clean_products', 'u') is not null
 go
 
 create table clean_products(
-	product_id char(32) primary key not null,
+	product_id char(32) primary key,
 	product_category_name varchar(50),
 	product_name_length int,
 	product_description_length int,
@@ -89,7 +89,7 @@ if object_id('clean_category_name_translation', 'u') is not null
 go
 
 create table clean_category_name_translation(
-	product_category_name varchar(50) primary key not null,
+	product_category_name varchar(50) primary key,
 	product_category_name_english varchar(50) not null
 	);
 go
@@ -100,8 +100,8 @@ if object_id('clean_order_items', 'u') is not null
 go
 
 create table clean_order_items(
-	order_id char(32) not null,   
-	order_item_id int not null,
+	order_id char(32),   
+	order_item_id int,
 	product_id char(32) not null,
 	seller_id char(32) not null,
 	shipping_limit_date datetime not null,
@@ -117,8 +117,8 @@ if object_id('clean_order_payments', 'u') is not null
 go
 
 create table clean_order_payments(
-	order_id char(32) not null,
-	payment_sequential int not null,
+	order_id char(32),
+	payment_sequential int,
 	payment_type varchar(15) not null,
 	payment_installments int not null,
 	payment_value decimal(18,2) not null,
@@ -132,8 +132,8 @@ if object_id('clean_order_reviews', 'u') is not null
 go
 
 create table clean_order_reviews(
-	review_id char(32) not null,
-	order_id char(32) not null,
+	review_id char(32),
+	order_id char(32),
 	review_score int not null,
 	review_comment_title varchar(30),
 	review_comment_message varchar(250),

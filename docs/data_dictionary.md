@@ -58,7 +58,7 @@ customer_id
 ### Notes:
 * customer_id assegna un codice cliente per ogni ordine, anche se effettuato dallo stesso cliente
 * customer_unique_id assegna un codice univoco ad ogni cliente
-* per ogni customer_unique_id ci possono essere più customer_id
+* per ogni customer_id ci possono essere più customer_unique_id
 * è possibile associare customer_zip_code_prefix a geolocation.geolocation_zip_code_prefix
 
 
