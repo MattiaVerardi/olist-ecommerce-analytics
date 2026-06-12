@@ -1,4 +1,4 @@
-# Table: orders
+# ORDERS
 
 ### Business meaning:
 Questo è il core del dataset e contiene informazioni sugli ordini effettuati
@@ -31,7 +31,7 @@ customer_id -> customers.customer_id
 
 
 
-# Table: customers
+# CUSTOMERS
 
 ### Business meaning:
 Contiene informazioni sui clienti e sulla loro posizione geografica
@@ -58,12 +58,12 @@ customer_id
 ### Notes:
 * customer_id assegna un codice cliente per ogni ordine, anche se effettuato dallo stesso cliente
 * customer_unique_id assegna un codice univoco ad ogni cliente
-* per ogni customer_id ci possono essere più customer_unique_id
+* per ogni customer_unique_id ci possono essere più customer_id
 * è possibile associare customer_zip_code_prefix a geolocation.geolocation_zip_code_prefix
 
 
 
-# Table: geolocation
+# GEOLOCATION
 
 ### Business meaning:
 Contiene informazioni per ogni codice postale brasiliano con relative coordinate
@@ -91,7 +91,7 @@ più righe per lo stesso geolocation_zip_code_prefix
 
 
 
-# Table: sellers
+# SELLERS
 
 ### Business meaning:
 Contiene informazioni riguardanti i venditori che hanno evaso gli ordini effettuati sull'e-commerce
@@ -119,7 +119,7 @@ seller_id
 
 
 
-# Table: products
+# PRODUCTS
 
 ### Business meaning:
 Contiene informazioni riguardo i prodotti venduti sull'e-commerce
@@ -152,7 +152,7 @@ product_id
 
 
 
-# Table: category_name_translation
+# CATEGORY NAME TRANSLATION
 
 ### Business meaning:
 Contiene le traduzioni dei nomi di categoria dei prodotti da portoghese ad inglese
@@ -178,7 +178,7 @@ product_category_name
 
 
  
-# Table: order_items
+# ORDER ITEMS
 
 ### Business meaning:
 Contiene informazioni riguardo gli articoli venduti
@@ -213,7 +213,7 @@ seller_id -> sellers.seller_id
 
 
 
-# Table: order_payments
+# ORDER PAYMENTS
 
 ### Business meaning:
 Contiene informazioni riguardo le opzioni di pagamento degli ordini
@@ -245,7 +245,7 @@ order_id -> orders.order_id
 
 
  
-# Table: order_reviews
+# ORDER REVIEWS
 
 ### Business meaning:
 Contiene informazioni riguardo le recensioni dei clienti

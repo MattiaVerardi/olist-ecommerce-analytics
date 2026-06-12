@@ -7,9 +7,9 @@ Author: Mattia Verardi
 use olist_ecommerce;
 go
 
--- NOTA: AGGIORNA IL PATH IN BASE AL TUO AMBIENTE LOCALE
+-- NOTA: Aggiorna il path in base al tuo ambiente locale
 
--- Orders
+-- ORDERS
 if object_id('clean_orders', 'u') is not null
 	truncate table clean_orders;
 go
@@ -26,7 +26,7 @@ with(
 	);
 go
 
--- Customers
+-- CUSTOMERS
 if object_id('clean_customers', 'u') is not null
 	truncate table clean_customers;
 go
@@ -43,7 +43,7 @@ with(
 	);
 go
 
--- Geolocation
+-- GEOLOCATION
 if object_id('clean_geolocation', 'u') is not null
 	truncate table clean_geolocation;
 go
@@ -60,7 +60,7 @@ with(
 	);
 go
 
--- Sellers
+-- SELLERS
 if object_id('clean_sellers', 'u') is not null
 	truncate table clean_sellers;
 go
@@ -77,7 +77,7 @@ with(
 	);
 go
 
--- Products
+-- PRODUCTS
 if object_id('clean_products', 'u') is not null
 	truncate table clean_products;
 go
@@ -94,7 +94,7 @@ with(
 	);
 go
 
--- Category Name Translation
+-- CATEGORY NAME TRANSLATION
 if object_id('clean_category_name_translation', 'u') is not null
 	truncate table clean_category_name_translation;
 go
@@ -111,7 +111,7 @@ with(
 	);
 go
 
--- Order Items
+-- ORDER ITEMS
 if object_id('clean_order_items', 'u') is not null
 	truncate table clean_order_items;
 go
@@ -128,7 +128,7 @@ with(
 	);
 go
 
--- Order Payments
+-- ORDER PAYMENTS
 if object_id('clean_order_payments', 'u') is not null
 	truncate table clean_order_payments;
 go
@@ -145,7 +145,7 @@ with(
 	);
 go
 
--- Order Reviews
+-- ORDER REVIEWS
 if object_id('clean_order_reviews', 'u') is not null
 	truncate table clean_order_reviews;
 go

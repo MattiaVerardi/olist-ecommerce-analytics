@@ -8,7 +8,7 @@ Author: Mattia Verardi
 use olist_ecommerce;
 go
 
--- Orders
+-- ORDERS
 if object_id('clean_orders', 'u') is not null
 	drop table clean_orders;
 go
@@ -25,7 +25,7 @@ create table clean_orders(
 	);
 go
 
--- Customers
+-- CUSTOMERS
 if object_id('clean_customers', 'u') is not null
 	drop table clean_customers;
 go
@@ -39,7 +39,7 @@ create table clean_customers(
 	);
 go
 
--- Geolocation
+-- GEOLOCATION
 if object_id('clean_geolocation', 'u') is not null
 	drop table clean_geolocation;
 go
@@ -53,7 +53,7 @@ create table clean_geolocation(
 	);
 go
 
--- Sellers
+-- SELLERS
 if object_id('clean_sellers', 'u') is not null
 	drop table clean_sellers;
 go
@@ -66,7 +66,7 @@ create table clean_sellers(
 	);
 go
 
--- Products
+-- PRODUCTS
 if object_id('clean_products', 'u') is not null
 	drop table clean_products;
 go
@@ -83,7 +83,7 @@ create table clean_products(
 	product_width_cm decimal(10,2)
 	);
 
--- Category Name Translation
+-- CATEGORY NAME TRANSLATION
 if object_id('clean_category_name_translation', 'u') is not null
 	drop table clean_category_name_translation;
 go
@@ -94,7 +94,7 @@ create table clean_category_name_translation(
 	);
 go
 
--- Order Items
+-- ORDER ITEMS
 if object_id('clean_order_items', 'u') is not null
 	drop table clean_order_items;
 go
@@ -111,7 +111,7 @@ create table clean_order_items(
 	);
 go
 
--- Order Payments
+-- ORDER PAYMENTS
 if object_id('clean_order_payments', 'u') is not null
 	drop table clean_order_payments;
 go
@@ -126,7 +126,7 @@ create table clean_order_payments(
 	);
 go
 
--- Order Reviews
+-- ORDER REVIEWS
 if object_id('clean_order_reviews', 'u') is not null
 	drop table clean_order_reviews;
 go

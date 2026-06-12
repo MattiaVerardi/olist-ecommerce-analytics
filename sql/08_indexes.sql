@@ -1,13 +1,13 @@
 /*
 Project: Olist Ecommerce Analytics
-Description: Creazione indexes
+Description: Creazione di IX per ogni FK presente del database
 Author: Mattia Verardi
 */
 
 use olist_ecommerce;
 go
 
--- Orders
+-- ORDERS
 if exists(
 	select 1
 	from sys.indexes
@@ -21,7 +21,7 @@ create index IX_clean_orders_customer_id
 on clean_orders(customer_id);
 go
 
--- Order Items
+-- ORDER ITEMS
 if exists(
 	select 1
 	from sys.indexes
@@ -61,7 +61,7 @@ create index IX_clean_order_items_seller_id
 on clean_order_items(seller_id);
 go
 
--- Order Payments
+-- ORDER PAYMENTS
 if exists(
 	select 1
 	from sys.indexes
@@ -75,7 +75,7 @@ create index IX_clean_order_payments_order_id
 on clean_order_payments(order_id);
 go
 
--- Order Reviews
+-- ORDER REVIEWS
 if exists(
 	select 1
 	from sys.indexes

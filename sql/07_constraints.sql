@@ -1,18 +1,58 @@
 /*
 Project: Olist Ecommerce Analytics
-Description: Inserimento FK e CK
+Description: Inserimento di FK e CK. Nello specifico, sono stati
+	inseriti i seguenti CK:
+
+ORDERS
+- CK_clean_orders_order_status, che limita order_status ai soli
+	valori 'delivered', 'invoiced', 'shipped', 
+	'processing', 'unavailable', 'canceled', 'created' e 
+	'approved'
+
+PRODUCTS
+- CK_clean_products_product_name_length,
+- CK_clean_products_product_description_length,
+- CK_clean_products_product_photos_qty,
+- CK_clean_products_product_weight_g,
+- CK_clean_products_product_length_cm,
+- CK_clean_products_product_height_cm,
+- CK_clean_products_product_width_cm, che escludono i valori 
+	negativi dalle rispettive colonne
+
+ORDER ITEMS
+- CK_clean_order_items_price,
+- CK_clean_order_items_freight_value, che escludono i valori 
+	negativi dalle rispettive colonne
+
+ORDER PAYMENTS
+- CK_clean_order_payments_payment_type, che limita payment_type
+	ai soli valori 'credit_card', 'boleto', 'voucher',
+	'debit_card' e 'not_defined'
+- CK_clean_order_payments_payment_value, che esclude i valori 
+	negativi da payment_value
+
+ORDER REVIEWS
+- CK_clean_order_reviews_review_score, che limita i valori di 
+	review_score tra 1 e 5 compresi
+- CK_clean_order_reviews_creation_before_answer, che impone 
+	valori di review_creation_date minori o uguali di 
+	review_answer_timestamp
+
 Author: Mattia Verardi
 */
 
 use olist_ecommerce;
 go
 
--- FK
+-- Foreign Key
+
+-- ORDERS
 alter table clean_orders
 add foreign key(customer_id)
 	references clean_customers(customer_id);
 go
 
+-- ORDER ITEMS
 alter table clean_order_items
 add foreign key(order_id)
 		references clean_orders(order_id),
@@ -22,17 +62,22 @@ add foreign key(order_id)
 		references clean_sellers(seller_id);
 go
 
+-- ORDER PAYMENTS
 alter table clean_order_payments
 add foreign key(order_id)
 	references clean_orders(order_id);
 go
 
+-- ORDER REVIEWS
 alter table clean_order_reviews
 add foreign key(order_id)
 	references clean_orders(order_id);
 go
 
--- CK
+
+-- Check Constraints
+
+-- ORDERS
 if exists(
 	select 1
 	from sys.check_constraints
@@ -58,6 +103,7 @@ add constraint CK_clean_orders_order_status
 		);
 go
 
+-- PRODUCTS
 if exists(
 	select 1
 	from sys.check_constraints
@@ -170,6 +216,7 @@ add constraint CK_clean_products_product_width_cm
 		);
 go
 
+-- ORDER ITEMS
 if exists(
 	select 1
 	from sys.check_constraints
@@ -202,6 +249,7 @@ add constraint CK_clean_order_items_freight_value
 		);
 go
 
+-- ORDER PAYMENTS
 if exists(
 	select 1
 	from sys.check_constraints
@@ -240,6 +288,7 @@ add constraint CK_clean_order_payments_payment_value
 		);
 go
 
+-- ORDER REVIEWS
 if exists(
 	select 1
 	from sys.check_constraints
