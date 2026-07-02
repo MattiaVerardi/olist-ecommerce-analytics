@@ -20,12 +20,15 @@ ORDERS
 - order_approval_duration_hours, che calcola le ore che
 	intercorrono tra la data di acquisto e la data di
 	approvazione dell'ordine
-- order_delivery_time_days, che calcola i giorni che
-	intercorrono tra la data di acquisto e la data di
-	consegna al cliente
 - order_shipping_time_days, che calcola i giorni che
+	intercorrono tra la data di acquisto e quella di
+	consegna al corriere
+- order_transit_time_days, che calcola i giorni che
 	intercorrono tra la consegna al corriere e 
 	quella al cliente
+- order_delivery_time_days, che calcola i giorni che
+	interocorrono tra la data di acquisto e quella di
+	consegna al cliente
 - order_delivery_delay_days, che calcola i giorni di
 	differenza tra la data di consegna effettiva e quella
 	stimata. Se positivo, l'ordine è stato consegnato
@@ -98,24 +101,6 @@ Author: Mattia Verardi
 
 use olist_ecommerce;
 go
-
--- ORDER ITEMS
-
--- Freight Ratio
-if col_length('clean_order_items', 'freight_ratio') is null
-	alter table clean_order_items
-	add freight_ratio decimal(10,4);
-go
-
-update clean_order_items
-set freight_ratio =
-		case
-			when price > 0
-				then freight_value / price
-			else null
-		end;
-go
-
 
 -- ORDERS
 
@@ -192,6 +177,36 @@ set order_approval_duration_hours =
 			);
 go
 
+-- Order Shipping Time Days
+if col_length('clean_orders', 'order_shipping_time_days') is null
+	alter table clean_orders
+	add order_shipping_time_days int;
+go
+
+update clean_orders
+set order_shipping_time_days =
+		datediff(
+			day,
+			order_purchase_timestamp,
+			order_delivered_carrier_date
+			);
+go
+
+-- Order Transit Time Days
+if col_length('clean_orders', 'order_transit_time_days') is null
+	alter table clean_orders
+	add order_transit_time_days int;
+go
+
+update clean_orders
+set order_transit_time_days =
+		datediff(
+			day,
+			order_delivered_carrier_date,
+			order_delivered_customer_date
+			);
+go
+
 -- Order Delivery Time Days
 if col_length('clean_orders', 'order_delivery_time_days') is null
 	alter table clean_orders
@@ -203,21 +218,6 @@ set order_delivery_time_days =
 		datediff(
 			day,
 			order_purchase_timestamp,
-			order_delivered_customer_date
-			);
-go
-
--- Order Shipping Time Days
-if col_length('clean_orders', 'order_shipping_time_days') is null
-	alter table clean_orders
-	add order_shipping_time_days int;
-go
-
-update clean_orders
-set order_shipping_time_days =
-		datediff(
-			day,
-			order_delivered_carrier_date,
 			order_delivered_customer_date
 			);
 go
@@ -395,6 +395,24 @@ set order_seller_count = sc.seller_per_order
 from sellers_count as sc
 inner join clean_orders as co
 	on sc.order_id = co.order_id;
+go
+
+
+-- ORDER ITEMS
+
+-- Freight Ratio
+if col_length('clean_order_items', 'freight_ratio') is null
+	alter table clean_order_items
+	add freight_ratio decimal(10,4);
+go
+
+update clean_order_items
+set freight_ratio =
+		case
+			when price > 0
+				then freight_value / price
+			else null
+		end;
 go
 
 
