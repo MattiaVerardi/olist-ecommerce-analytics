@@ -4,11 +4,6 @@ Description: Creazione delle seguenti feature, divise per
 dataset:
 
 
-ORDER ITEMS
-- freight_ratio, che calcola il rapporto tra il costo della
-	spedizione e il prezzo dell'articolo venduto, ossia quanto
-	pesa il costo del trasporto sul prezzo dell'articolo
-
 ORDERS
 - order_purchase_year,
 - order_purchase_month,
@@ -90,6 +85,11 @@ where cop.total_payment_value <>
 	venduto per ogni ordine
 - order_seller_count, che conta il numero di venditori univoci
 	per ordine
+
+ORDER ITEMS
+- freight_ratio, che calcola il rapporto tra il costo della
+	spedizione e il prezzo dell'articolo venduto, ossia quanto
+	pesa il costo del trasporto sul prezzo dell'articolo
 
 ORDER REVIEWS
 - review_answer_days, che calcola i giorni che intercorrono
@@ -432,7 +432,3 @@ set review_answer_days =
 			review_answer_timestamp
 			);
 go
-
-
-
-
