@@ -204,7 +204,7 @@ seller_id -> sellers.seller_id
 | seller_id           | string   | Identificativo univoco venditore           |
 | shipping_limit_date | datetime | Data limite di spedizione per il venditore |
 | price               | decimal  | Prezzo dell'articolo                       |
-| freight_value	      | decimal  | Valore di trasporto dell'articolo          |
+| freight_value	      | decimal  | Costo di trasporto dell'articolo          |
 ```
 
 ### Notes:
