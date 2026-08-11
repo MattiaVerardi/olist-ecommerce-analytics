@@ -9,9 +9,9 @@
 
 # Business questions
 * Come stanno andando le vendite nel tempo?
-* Quali prodotti generano il maggior valore per l’azienda?
-* Quali clienti generano più valore?
-* Quali venditori generano più fatturato per la piattaforma?
 * Quali aree geografiche rappresentano le migliori opportunità di crescita?
+* Quali prodotti generano il maggior valore per l’azienda?
+* Quali venditori generano più fatturato per la piattaforma?
+* Quali clienti generano più valore?
 * Che impatto hanno le consegne sulla customer satisfaction?
 * Quali fattori influenzano la percezione dei clienti?
