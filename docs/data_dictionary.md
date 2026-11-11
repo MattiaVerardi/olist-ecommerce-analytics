@@ -31,6 +31,41 @@ customer_id -> customers.customer_id
 
 
 
+# ORDER ITEMS
+
+### Business meaning:
+Contiene informazioni riguardo gli articoli venduti
+
+### Granularity:
+1 riga = 1 articolo venduto
+
+### PK:
+(order_id, order_item_id)
+
+### FK:
+order_id -> orders.order_id  
+product_id -> products.product_id  
+seller_id -> sellers.seller_id
+
+### Columns:
+```
+| Column              | Type     | Description                                |
+|---------------------|----------|--------------------------------------------|
+| order_id            | string   | Identificativo univoco dell'ordine         |
+| order_item_id       | int      | Identificativo sequenziale dell'articolo   |
+| product_id          | string   | Identificativo univoco prodotto            |
+| seller_id           | string   | Identificativo univoco venditore           |
+| shipping_limit_date | datetime | Data limite di spedizione per il venditore |
+| price               | decimal  | Prezzo dell'articolo                       |
+| freight_value	      | decimal  | Costo di trasporto dell'articolo          |
+```
+
+### Notes:
+* uno stesso order_id può avere più articoli, identificati univocamente con un numero sequenziale da order_item_id
+* se un order_id ha più di un order_item_id, il freight_value totale viene suddiviso tra i vari articoli
+
+
+
 # CUSTOMERS
 
 ### Business meaning:
@@ -175,41 +210,6 @@ product_category_name
 
 ### Notes:
 * è possibile collegare product_category_name con products.product_category_name
-
-
- 
-# ORDER ITEMS
-
-### Business meaning:
-Contiene informazioni riguardo gli articoli venduti
-
-### Granularity:
-1 riga = 1 articolo venduto
-
-### PK:
-(order_id, order_item_id)
-
-### FK:
-order_id -> orders.order_id  
-product_id -> products.product_id  
-seller_id -> sellers.seller_id
-
-### Columns:
-```
-| Column              | Type     | Description                                |
-|---------------------|----------|--------------------------------------------|
-| order_id            | string   | Identificativo univoco dell'ordine         |
-| order_item_id       | int      | Identificativo sequenziale dell'articolo   |
-| product_id          | string   | Identificativo univoco prodotto            |
-| seller_id           | string   | Identificativo univoco venditore           |
-| shipping_limit_date | datetime | Data limite di spedizione per il venditore |
-| price               | decimal  | Prezzo dell'articolo                       |
-| freight_value	      | decimal  | Costo di trasporto dell'articolo          |
-```
-
-### Notes:
-* uno stesso order_id può avere più articoli, identificati univocamente con un numero sequenziale da order_item_id
-* se un order_id ha più di un order_item_id, il freight_value totale viene suddiviso tra i vari articoli
 
 
 

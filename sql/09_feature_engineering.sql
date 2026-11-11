@@ -22,7 +22,7 @@ ORDERS
 	intercorrono tra la consegna al corriere e 
 	quella al cliente
 - order_delivery_time_days, che calcola i giorni che
-	interocorrono tra la data di acquisto e quella di
+	intercorrono tra la data di acquisto e quella di
 	consegna al cliente
 - order_delivery_delay_days, che calcola i giorni di
 	differenza tra la data di consegna effettiva e quella
